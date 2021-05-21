@@ -22,6 +22,10 @@ public class ITestTests extends TestBase {
         step("Open website", () -> {
             open("https://ittest-team.ru/");
         });
+        step(" Check Development", () -> {
+            $(byText("Подробнее")).click();
+            $("h1").shouldHave(text("Разработка"));
+    });
         step(" Check About", () -> {
             $(byText("О нас")).click();
             $(".content-wrapper__title").shouldHave(text("о компании"));
@@ -31,11 +35,19 @@ public class ITestTests extends TestBase {
             $(".btn.view-presentation").download();
             FileUtils.deleteDirectory(new File("./downloads"));
         });
-        step(" Check Download", () -> {
+        step(" Check Testing", () -> {
             $("#menu-item-29").click();
             $(byText("Тестирование")).click();
             $("h1").shouldHave(text("тестирование"));
         });
+        step(" Check Contacts", () -> {
+            $(byText("Контакты")).click();
+            $(".info-contacts-links").shouldHave(text("+7 (4872) 52-59-50"));
+    });
+        step(" Check Languages", () -> {
+            $(".languages").click();
+            $(".content__header").shouldHave(text("contacts"));
+    });
     }
 }
 
