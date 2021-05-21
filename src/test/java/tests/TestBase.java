@@ -27,10 +27,10 @@ public class TestBase {
 
 
         Configuration.browser = System.getProperty("web.browser", "chrome");
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--lang=ru");
 
-        Configuration.browserCapabilities = options;
+        capabilities.setCapability("intl.accept_languages", "ru-RU");
+
+        Configuration.browserCapabilities = capabilities;
 
 
         String remoteWebDriver = System.getProperty("remote.web.driver");
