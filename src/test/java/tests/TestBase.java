@@ -9,6 +9,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 import static helpers.AttachmentHelper.*;
@@ -23,13 +26,18 @@ public class TestBase {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
+        ChromeOptions chromeOptions = new ChromeOptions();
+        Map<String, Object> prefs = new HashMap<>();
+        prefs.put("intl.accept_languages", "ru");
+        chromeOptions.setExperimentalOption("prefs", prefs);
+        capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
+
         Configuration.browserCapabilities = capabilities;
+
 
 
         Configuration.browser = System.getProperty("web.browser", "chrome");
 
-
-        capabilities.setCapability("intl.accept_languages", "ru-RU");
 
         String remoteWebDriver = System.getProperty("remote.web.driver");
 
