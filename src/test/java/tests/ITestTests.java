@@ -47,8 +47,9 @@ public class ITestTests extends TestBase {
     @Test
     void CheckLangTest() {
         step(" Check Languages", () -> {
+            open("https://ittest-team.ru/");
             $(".languages").click();
-            $(".content__header").shouldHave(text("contacts"));
+            $(".name").shouldHave(text("Development"));
         });
     }
 }
