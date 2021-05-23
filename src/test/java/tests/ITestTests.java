@@ -43,6 +43,9 @@ public class ITestTests extends TestBase {
             $(byText("Контакты")).click();
             $(".info-contacts-links").shouldHave(text("+7 (4872) 52-59-50"));
         });
+    }
+    @Test
+    void CheckLangTest() {
         step(" Check Languages", () -> {
             $(".languages").click();
             $(".content__header").shouldHave(text("contacts"));
