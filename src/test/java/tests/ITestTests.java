@@ -44,12 +44,4 @@ public class ITestTests extends TestBase {
             $(".info-contacts-links").shouldHave(text("+7 (4872) 52-59-50"));
         });
     }
-    @Test
-    void CheckLangTest() {
-        step(" Check Languages", () -> {
-            open("https://ittest-team.ru/");
-            $(".languages").click();
-            $(".name").shouldHave(text("Development"));
-        });
-    }
 }
