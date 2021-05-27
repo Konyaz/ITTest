@@ -31,14 +31,9 @@ public class TestBase {
         prefs.put("intl.accept_languages", "ru");
         chromeOptions.setExperimentalOption("prefs", prefs);
         capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
-
         Configuration.browserCapabilities = capabilities;
-
-
-
         Configuration.browser = System.getProperty("web.browser", "chrome");
-
-
+        Configuration.downloadsFolder = "./downloads";
         String remoteWebDriver = System.getProperty("remote.web.driver");
 
         if (remoteWebDriver != null) {

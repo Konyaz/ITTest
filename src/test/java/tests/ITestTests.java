@@ -1,7 +1,6 @@
 package tests;
 
 
-import com.codeborne.selenide.Configuration;
 import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.Test;
 
@@ -30,7 +29,6 @@ public class ITestTests extends TestBase {
             $(".content-wrapper__title").shouldHave(text("о компании"));
         });
         step(" Check Download", () -> {
-            Configuration.downloadsFolder = "./downloads";
             $(".btn.view-presentation").download();
             FileUtils.deleteDirectory(new File("./downloads"));
         });
